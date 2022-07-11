@@ -24,21 +24,23 @@ increase the accuracy of these approximations.
 
 When using these approximations, please reference the following.
 
-aN<sup>3</sup>LO Transition Matrix Element References:
-J. McGowan, et. al., arXiv:2207.XXXXXX
-H. Kawamura, et. al., arXiv:1205.5727
-I. Bierenbaum, et. al., arXiv:0904.3563
-J. Ablinger, et. al., arXiv:1406.5654
-J. Ablinger, et. al., arXiv:1409.1135
-J. Ablinger, et. al., arXiv:1402.0359
+### aN<sup>3</sup>LO Transition Matrix Element References:
 
-aN<sup>3</sup>LO Splitting Functions References:
-J. McGowan, et. al., arXiv:2207.XXXXXX
-S. Moch, et. al., arXiv:1707.08315
-A. Vogt, et. al., arXiv:1808.08981
-S. Catani, et. al., hep-ph/9405388
-L. N. Lipatov, Sov. J. Nucl. Phys. (1976)
-E. A. Kuraev, et. al., JETP (1977)
-I. I. Balitsky, et. al., Sov. J. Nucl. Phys. (1978)
+- J. McGowan, et. al., arXiv:2207.XXXXXX
+- H. Kawamura, et. al., arXiv:1205.5727
+- I. Bierenbaum, et. al., arXiv:0904.3563
+- J. Ablinger, et. al., arXiv:1406.5654
+- J. Ablinger, et. al., arXiv:1409.1135
+- J. Ablinger, et. al., arXiv:1402.0359
+
+### aN<sup>3</sup>LO Splitting Functions References:
+
+- J. McGowan, et. al., arXiv:2207.XXXXXX
+- S. Moch, et. al., arXiv:1707.08315
+- A. Vogt, et. al., arXiv:1808.08981
+- S. Catani, et. al., hep-ph/9405388
+- L. N. Lipatov, Sov. J. Nucl. Phys. (1976)
+- E. A. Kuraev, et. al., JETP (1977)
+- I. I. Balitsky, et. al., Sov. J. Nucl. Phys. (1978)
 V. S. Fadin, et. al., hep-ph/9802290
 M. Ciafaloni, et. al., hep-ph/9803389
