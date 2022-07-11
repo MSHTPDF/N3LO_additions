@@ -823,6 +823,40 @@ c$$$      if(ipm2.ne.1) go to 1
 * =====================================================================
 *     N3LO
 * =====================================================================
+*     
+*     This code is provided as supplementary material to the MSHT20 
+*     approximate N3LO PDFs.
+*     
+*     These approximations are not exact and allow for a level of 
+*     variation by the input parameter "a" in all cases. These 
+*     subroutines here use a simple method of simultaneous equations in
+*     order to produce the approximations and therefore may well 
+*     be superseded in the future by more robust and equally/more 
+*     efficient approximations or indeed, the exact functions when 
+*     available.
+*
+*     Please refer to arXiv:2207.XXXX for the full details of how these
+*     approximations are determined.
+*
+*     Note that these can and will be continually updated with any  
+*     extra exact calculations that are made available, which will 
+*     increase the accuracy of these approximations.
+*
+*     When using these approximations, please reference the following.
+*
+*     References:
+*     J. McGowan, et. al., arXiv:2207.XXXXXX
+*     S. Moch, et. al., arXiv:1707.08315
+*     A. Vogt, et. al., arXiv:1808.08981
+*     S. Catani, et. al., hep-ph/9405388
+*     L. N. Lipatov, Sov. J. Nucl. Phys. (1976)
+*     E. A. Kuraev, et. al., JETP (1977)
+*     I. I. Balitsky, et. al., Sov. J. Nucl. Phys. (1978)
+*     V. S. Fadin, et. al., hep-ph/9802290
+*     M. Ciafaloni, et. al., hep-ph/9803389
+*     
+*     
+* ---------------------------------------------------------------------
 *     P_{qq}^{NS}
 * ---------------------------------------------------------------------
 *
@@ -1265,7 +1299,7 @@ c$$$      if(ipm2.ne.1) go to 1
 * =====================================================================
 *     P_{qq}^{PS}
 ! ---------------------------------------------------------------------
-*
+*     
 *
 *
       FUNCTION Pqqps3A(x, a)
@@ -1316,8 +1350,6 @@ c$$$      if(ipm2.ne.1) go to 1
       Pqqps3A = ((1.-X) * (C(1) * (1./X) + C(2) * (LOG(X)**2.) 
      &         + C(3) * (X**2.) + C(4) * (LOG(1.-X)**2.) 
      &         + a * LOG(1./X)/X) + Pqqps3exactA(X)) * (4*PI)**4.
-
-      ! Pqqps3A = 0.0D0
 *
       RETURN
       END
@@ -1391,8 +1423,6 @@ c$$$      if(ipm2.ne.1) go to 1
       Pqg3A = (C(1) * LOG(X)**2. + C(2) * LOG(X) + C(3) * (X**2.) 
      &          + C(4) * LOG(1.-X)**4.
      &          + a * LOG(1./X)/X + Pqg3exactA(X)) * (4*PI)**4.
-
-      ! Pqg3A = 0.0D0
 *
       RETURN
       END
@@ -1446,12 +1476,6 @@ c$$$      if(ipm2.ne.1) go to 1
       N_a(3) = 0.016000000001040217D0
       N_a(4) = 0.0058309037900882415D0
 *
-*     Moments for the varied function multiplied by a (ln(1/x)/x)
-      ! N_a(1) = 0.9999999999999999D0
-      ! N_a(2) = 0.11111111111076043D0
-      ! N_a(3) = 0.04000000000013782D0
-      ! N_a(4) = 0.02040816D0
-*
       DO i=1, n_dimension
         N(i) = N_exact(i) - a * N_a(i)
       ENDDO
@@ -1462,14 +1486,6 @@ c$$$      if(ipm2.ne.1) go to 1
      &                 -2938.1594667D0, 1302.32965951D0,362.67726047D0, 
      &                 874.63704072D0, 2025.64293423D0,-958.33374045D0, 
      &                 -272.56485302D0/), shape=(/4,4/))
-
-! Potential new shape with less drastic mid section. REMEMBER TO SWAP I AND J ON LINE BELOW.
-!       inv_A = reshape((/9.23873198D0, -1.22594351D2,  3.02228817D2, -1.94737981D2,
-!      &                 1.80715319D1, -3.62575148D2,  9.99656805D2, -6.80011571D2,
-!      &                 -6.88709962D0,  4.39355862D1, -2.97584482D1, -1.26448431D1,
-!      &                 -1.58456683D-1,  5.70444057D0, -2.13916521D1,  1.77471484D1/),
-!      &                 shape=(/4,4/))
-
 *
 *     Matrix multiplication of inv_A and N
       DO i=1,n_dimension
@@ -1482,13 +1498,6 @@ c$$$      if(ipm2.ne.1) go to 1
       Pgq3A = (C(1) * LOG(1./X)/X + C(2) * (LOG(X)**3.) + C(3) * X 
      &          + C(4) * LOG(1.-X) + a * (LOG(1./X)**2.)/X 
      &          + Pgq3exactA(X)) * (4*PI)**4.
-
-! Potential new shape with less drastic mid section.
-!       Pgq3A = (C(1) * (1./X) + C(2) * LOG(X) + C(3)
-!      &          + C(4) * (LOG(1.-X)**2.) + a * (LOG(1./X)**2.)/X 
-!      &          + Pgq3exactA(X)) * (4*PI)**4.
-
-      ! Pgq3A = 0.0D0
 *
       RETURN
       END
@@ -1559,8 +1568,6 @@ c$$$      if(ipm2.ne.1) go to 1
       Pgg3A = (C(1) * LOG(X)**2. + C(2) * LOG(X) + C(3) * (X**2.) 
      &          + C(4) * (LOG(1.-X)**2.) 
      &          + a * LOG(1./X)/X + Pgg3exactA(X)) * (4*PI)**4.
-
-      ! PggN3LO = 0.0D0
 *
       RETURN
       END

@@ -310,6 +310,36 @@
 * =====================================================================
 *     N3LO
 * =====================================================================
+*
+*     This code is provided as supplementary material to the MSHT20 
+*     approximate N3LO PDFs.
+*     
+*     These approximations are not exact and allow for a level of 
+*     variation by the input parameter "a" in all cases. These 
+*     subroutines here use a simple method of simultaneous equations in
+*     order to produce the approximations and therefore may well 
+*     be superseded in the future by more robust and equally/more 
+*     efficient approximations or indeed, the exact functions when 
+*     available.
+*
+*     Please refer to arXiv:2207.XXXX for the full details of how these
+*     approximations are determined.
+*
+*     Note that these can and will be continually updated with any  
+*     extra exact calculations that are made available, which will 
+*     increase the accuracy of these approximations.
+*
+*     When using these approximations, please reference the following.
+*
+*     References:
+*     J. McGowan, et. al., arXiv:2207.XXXXXX
+*     H. Kawamura, et. al., arXiv:1205.5727
+*     I. Bierenbaum, et. al., arXiv:0904.3563
+*     J. Ablinger, et. al., arXiv:1406.5654
+*     J. Ablinger, et. al., arXiv:1409.1135
+*     J. Ablinger, et. al., arXiv:1402.0359
+*     
+* ---------------------------------------------------------------------
 *     A_{Hg}
 ! ---------------------------------------------------------------------
 !
@@ -370,8 +400,8 @@ C     Matrix multiplication of inv_A and N
      &          +C(4)*X**2.+C(5)*LOG(X)+a*(1./X)
      &          +AHg3exactA(X)
 *
+*     Smoothing out instability towards large-x
       if(x.gt.0.924D0) AHg3A_res = AHg3A(0.924D0, a)*(1.-X)
-      ! AHg3A_res = 0.0D0
 *
       RETURN 
       END 
@@ -410,10 +440,6 @@ C     Matrix multiplication of inv_A and N
      .+165.11455D0*(log(Y)**3)-604.63554D0*(log(Y)**2)+3524.9967D0*log(Y)
      .+(1.-Y)*(0.24691358D0*(log(1.-Y)**4)-4.44444444D0*(log(1.-Y)**3)
      .-2.28230742D0*(log(1.-Y)**2)-357.426943D0*log(1.-Y)+116.478169D0)
-
-      ! if (y.gt.0.4D0) AHq3A_res = AHq3A(0.4D0)*(1.-Y)/0.6D0
-
-      ! AHq3A_res = 0.0D0
 *
       RETURN
       END
@@ -492,6 +518,7 @@ C     Moments for the varied function (1/x) multiplied by a
 *
       AqqH3B = C(3)*(1./(1.-X))
 *
+*     Smoothing out instability towards large-x
       if (X.gt.0.4D0) AqqH3A = 0.0D0
       if (X.gt.0.4D0) AqqH3B = 0.0D0
 *
@@ -516,6 +543,7 @@ C     Moments for the varied function (1/x) multiplied by a
      &        + 1814.73*(1./Y) - (580./243.)*log(1.-Y)**4. 
      &        - (17624./729.)*log(1.-Y)**3. - 135.699*log(1.-Y)**2.
 
+*     Smoothing out instability towards large-x
       if (y.gt.0.7D0) AgqH3A_res = AgqH3A(0.7D0)*(1.-Y)/0.3D0
 *
       RETURN
@@ -558,16 +586,6 @@ C     Moments for the varied function (1/x) multiplied by a
         N(i) = N_exact(i) - a * N_a(i)
       ENDDO
 *
-!       inv_A = reshape((/1.05434437D-01, -3.76135977D+00, 2.08675271D+01, 
-!      &                  -3.56461172D+01, 1.86043428D+01, 6.29487422D-01, 
-!      &                  -2.19141532D+01,  1.19081094D+02, -1.99741697D+02, 
-!      &                  1.02541857D+02, 2.85832310D+01, -6.90092962D+02, 
-!      &                  2.82378438D+03, -3.88590569D+03, 1.72638239D+03, 
-!      &                  8.06540899D+00, 1.98982084D+01, -4.65536179D+02, 
-!      &                  9.44684628D+02, -5.08912706D+02, 7.21897161D+00, 
-!      &                  -2.13313290D+02,1.00699129D+03, -1.50242240D+03, 
-!      &                  7.03070750D+02/), shape=(/5,5/))
-
       inv_A = reshape((/1.43759679D+01, -3.46333748D+02, 1.61699126D+03,
      &                  -2.51174722D+03, 1.23814937D+03, 1.21751771D+02, 
      &                  -2.87863393D+03, 1.32164568D+04, -2.02263161D+04, 
@@ -586,16 +604,9 @@ C     Moments for the varied function (1/x) multiplied by a
         ENDDO
       ENDDO
 *
-!       AggH3A_res = (C(1) * LOG(1.-X)**4. + C(2) * LOG(1.-X)**3. 
-!      &          + C(3) * LOG(X) + C(4) * LOG(X)**2. 
-!      &          + C(5) * (1./x) + a * (LOG(X)/X))
-
       AggH3A_res = (C(1) * LOG(1.-X)**2. + C(2) * LOG(1.-X) 
      &          + C(3) * X**2. + C(4) * LOG(X) 
      &          + C(5) * X + a * (LOG(X)/X))
-*
-!      if (x.gt.0.4D0) AggH3A_res = AggH3A(0.4D0, a)*(1.-X)/0.6D0
-      ! AggH3A_res = 0.0D0
 *
       RETURN 
       END 
