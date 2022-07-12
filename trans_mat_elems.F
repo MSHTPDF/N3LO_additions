@@ -348,6 +348,8 @@
 !   The method of simultaneous equations is used to estimate the 
 !   coefficients of a fixed functional form using the hard coded Mellin
 !   moments.
+*
+*     J. M. - 11/07/2022
 !
       RECURSIVE FUNCTION AHg3A(x, a) RESULT(AHg3A_res)
       IMPLICIT DOUBLE PRECISION (A-H, O-Z)
@@ -409,7 +411,8 @@ C     Matrix multiplication of inv_A and N
 ! ---------------------------------------------------------------------
 !
 ! ..This is the regular piece of the known exact contribution to AHg(3).
-!    Also contained is the approximate expression which converts to MSbar.
+*
+*     J. M. - 11/07/2022
 !      
       FUNCTION AHg3exactA(Y) 
       IMPLICIT DOUBLE PRECISION (A-Z) 
@@ -426,7 +429,8 @@ C     Matrix multiplication of inv_A and N
 ! ---------------------------------------------------------------------
 !
 ! ..This is the approximate parameterisation of the AHq(3) function.
-!   Including the conversion function to MSbar.
+*
+*     J. M. - 11/07/2022
 !      
       RECURSIVE FUNCTION AHq3A(Y) RESULT(AHq3A_res)
       IMPLICIT DOUBLE PRECISION (A-Z) 
@@ -453,6 +457,8 @@ C     Matrix multiplication of inv_A and N
 !   The method of simultaneous equations is used to estimate the 
 !   coefficients of a fixed functional form using the hard coded Mellin
 !   moments.
+*
+*     J. M. - 11/07/2022
 !
       SUBROUTINE AqqH3AB(x, a, AqqH3A, AqqH3B)
       IMPLICIT DOUBLE PRECISION (A-H, O-Z)
@@ -529,8 +535,9 @@ C     Moments for the varied function (1/x) multiplied by a
 *     A_{gq,H}
 ! ---------------------------------------------------------------------
 !
-! ..This is the approximate function the AgqH(3). Including its 
-!   conversion to MSbar.
+! ..This is the approximate function the AgqH(3).
+*
+*     J. M. - 11/07/2022
 !
       RECURSIVE FUNCTION AgqH3A(Y) RESULT(AgqH3A_res)
       IMPLICIT DOUBLE PRECISION (A-Z) 
@@ -557,6 +564,8 @@ C     Moments for the varied function (1/x) multiplied by a
 !   based on the variational parameter a (xp(57)).
 !   It uses simultaneous equations to estimate the coefficients of a 
 !   fixed functional form using the hard coded moments.
+*
+*     J. M. - 11/07/2022
 !
       RECURSIVE FUNCTION AggH3A(X, a) RESULT(AggH3A_res)
       IMPLICIT DOUBLE PRECISION (A-H, O-Z)
