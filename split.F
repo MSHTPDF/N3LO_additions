@@ -861,7 +861,7 @@ c$$$      if(ipm2.ne.1) go to 1
 * ---------------------------------------------------------------------
 *
 *     Contribution from approximate four-loop splitting function with
-*     variational parameter (0 < aNS < 350). This is a subroutine and
+*     variational parameter (0 < aNS < 0.014). This is a subroutine and
 *     outputs a regular and plus distribution part of the approximation.
 *
       SUBROUTINE Pqqns3PAB(x, a, FLAVOR, PnsN3LOresult, PnsN3LOplus)
@@ -986,7 +986,7 @@ c$$$      if(ipm2.ne.1) go to 1
 *
 * -------------------------------------------------------------------------
 *
-*
+*     This is the regular exact part of P3NS.
 *
       FUNCTION Pqqns3PexactA(x, FLAVOR)
       IMPLICIT DOUBLE PRECISION (A-H, O-Z)
@@ -1039,6 +1039,8 @@ c$$$      if(ipm2.ne.1) go to 1
 *
 * ---------------------------------------------------------------------------
 *
+*     This is the singular exact part of P3NS.
+*
       FUNCTION Pqqns3PexactB(x, FLAVOR)
       IMPLICIT DOUBLE PRECISION (A-H, O-Z)
       DATA PI,PI2/3.14159,9.8696/
@@ -1058,7 +1060,7 @@ c$$$      if(ipm2.ne.1) go to 1
 *
 * ----------------------------------------------------------------------------
 *
-*
+*     This is the 'local' exact part of P3NS.
 *
       FUNCTION Pqqns3PexactC(X, FLAVOR)
       IMPLICIT DOUBLE PRECISION (A-H, O-Z)
@@ -1083,9 +1085,8 @@ c$$$      if(ipm2.ne.1) go to 1
 * ---------------------------------------------------------------------
 *
 *
-* ..This is the regular piece of P2_NS-.  The rational coefficients are 
-*    exact, the rest has been fitted for x between 10^-6 and 1 - 10^-6.
-*    The N_f^2 part is exact (and identical to that of P2_NS+). 
+* ..This is the regular piece of P3_NS-. Approximation taken from 
+*   arXiv:1707.08315.
 *
       FUNCTION P3NSMA (Y, FLAVOR)
       IMPLICIT DOUBLE PRECISION (A-H, O-Z)
@@ -1138,9 +1139,8 @@ c$$$      if(ipm2.ne.1) go to 1
 * ---------------------------------------------------------------------
 *
 *
-* ..This is the regular piece of P2_NS-.  The rational coefficients are 
-*    exact, the rest has been fitted for x between 10^-6 and 1 - 10^-6.
-*    The N_f^2 part is exact (and identical to that of P2_NS+). 
+* ..This is the singular piece of P3_NS-. Approximation taken from 
+*   arXiv:1707.08315.
 *
       FUNCTION P3NSMB (Y, FLAVOR)
       IMPLICIT DOUBLE PRECISION (A-H, O-Z)
@@ -1163,9 +1163,8 @@ c$$$      if(ipm2.ne.1) go to 1
 * ---------------------------------------------------------------------
 *
 *
-* ..This is the regular piece of P2_NS-.  The rational coefficients are 
-*    exact, the rest has been fitted for x between 10^-6 and 1 - 10^-6.
-*    The N_f^2 part is exact (and identical to that of P2_NS+). 
+* ..This is the 'local' piece of P3_NS-. Approximation taken from 
+*   arXiv:1707.08315.
 *
       FUNCTION P3NSMC (Y, FLAVOR)
       IMPLICIT DOUBLE PRECISION (A-H, O-Z)
@@ -1194,9 +1193,8 @@ c$$$      if(ipm2.ne.1) go to 1
 * ---------------------------------------------------------------------
 *
 *
-* ..This is the regular piece of P2_NS-.  The rational coefficients are 
-*    exact, the rest has been fitted for x between 10^-6 and 1 - 10^-6.
-*    The N_f^2 part is exact (and identical to that of P2_NS+). 
+* ..This is P3_NSS, the difference of P3_NSV and P3_NS-.  
+*   Approximation taken from arXiv:1707.08315.
 *
       FUNCTION P3NSSA (Y, FLAVOR)
       IMPLICIT DOUBLE PRECISION (A-H, O-Z)
@@ -1300,7 +1298,9 @@ c$$$      if(ipm2.ne.1) go to 1
 *     P_{qq}^{PS}
 ! ---------------------------------------------------------------------
 *     
-*
+*     Contribution from approximate four-loop splitting function with
+*     variational parameter (-0.7 < aPS < 0.0).
+*     This is the regular part of P3PS.
 *
       FUNCTION Pqqps3A(x, a)
       IMPLICIT DOUBLE PRECISION (A-H, O-Z)
@@ -1356,7 +1356,7 @@ c$$$      if(ipm2.ne.1) go to 1
 *
 * ------------------------------------------------------------------------
 *
-*
+*     This is the regular exact part of P3PS.
 *
       FUNCTION Pqqps3exactA(x)
       IMPLICIT DOUBLE PRECISION (A-H, O-Z)
@@ -1377,7 +1377,9 @@ c$$$      if(ipm2.ne.1) go to 1
 *     P_{qg}
 ! ---------------------------------------------------------------------
 *
-*
+*     Contribution from approximate four-loop splitting function with
+*     variational parameter (-2.5 < aQG < -0.8).
+*     This is the regular part of P3QG.
 *
       FUNCTION Pqg3A(x, a)
       IMPLICIT DOUBLE PRECISION (A-H, O-Z)
@@ -1429,7 +1431,7 @@ c$$$      if(ipm2.ne.1) go to 1
 *
 * ---------------------------------------------------------------------------
 *
-*
+*     This is the regular exact part of P3QG.
 *
       FUNCTION Pqg3exactA(x)
       IMPLICIT DOUBLE PRECISION (A-H, O-Z)
@@ -1451,7 +1453,9 @@ c$$$      if(ipm2.ne.1) go to 1
 *     P_{gq}
 ! ---------------------------------------------------------------------
 *
-*
+*     Contribution from approximate four-loop splitting function with
+*     variational parameter (-1.8 < aGQ < -1.5).
+*     This is the regular part of P3GQ.
 *
       FUNCTION Pgq3A(x, a)
       IMPLICIT DOUBLE PRECISION (A-H, O-Z)
@@ -1504,7 +1508,7 @@ c$$$      if(ipm2.ne.1) go to 1
 *
 * ---------------------------------------------------------------------------
 *
-*
+*     This is the regular exact part of P3GQ.
 *
       FUNCTION Pgq3exactA(x)
       IMPLICIT DOUBLE PRECISION (A-H, O-Z)
@@ -1524,7 +1528,9 @@ c$$$      if(ipm2.ne.1) go to 1
 *     P_{gg}
 ! ---------------------------------------------------------------------
 *
-*
+*     Contribution from approximate four-loop splitting function with
+*     variational parameter (-5 < aGG < -15).
+*     This is the regular part of P3GG.
 *
       FUNCTION Pgg3A(x, a)
       IMPLICIT DOUBLE PRECISION (A-H, O-Z)
@@ -1574,7 +1580,7 @@ c$$$      if(ipm2.ne.1) go to 1
 *
 * -----------------------------------------------------------------------------
 *
-*
+*     This is the regular exact part of P3GG.
 *
       FUNCTION Pgg3exactA(x)
       IMPLICIT DOUBLE PRECISION (A-H, O-Z)
