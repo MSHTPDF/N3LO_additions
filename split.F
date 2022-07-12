@@ -864,6 +864,8 @@ c$$$      if(ipm2.ne.1) go to 1
 *     variational parameter (0 < aNS < 0.014). This is a subroutine and
 *     outputs a regular and plus distribution part of the approximation.
 *
+*     J. M. - 11/07/2022
+*
       SUBROUTINE Pqqns3PAB(x, a, FLAVOR, PnsN3LOresult, PnsN3LOplus)
       IMPLICIT DOUBLE PRECISION (A-H, O-Z)
       INTEGER n_dimension
@@ -988,6 +990,8 @@ c$$$      if(ipm2.ne.1) go to 1
 *
 *     This is the regular exact part of P3NS.
 *
+*     J. M. - 11/07/2022
+*
       FUNCTION Pqqns3PexactA(x, FLAVOR)
       IMPLICIT DOUBLE PRECISION (A-H, O-Z)
       DATA PI,PI2/3.14159,9.8696/
@@ -1041,6 +1045,8 @@ c$$$      if(ipm2.ne.1) go to 1
 *
 *     This is the singular exact part of P3NS.
 *
+*     J. M. - 11/07/2022
+*
       FUNCTION Pqqns3PexactB(x, FLAVOR)
       IMPLICIT DOUBLE PRECISION (A-H, O-Z)
       DATA PI,PI2/3.14159,9.8696/
@@ -1061,6 +1067,8 @@ c$$$      if(ipm2.ne.1) go to 1
 * ----------------------------------------------------------------------------
 *
 *     This is the 'local' exact part of P3NS.
+*
+*     J. M. - 11/07/2022
 *
       FUNCTION Pqqns3PexactC(X, FLAVOR)
       IMPLICIT DOUBLE PRECISION (A-H, O-Z)
@@ -1087,6 +1095,8 @@ c$$$      if(ipm2.ne.1) go to 1
 *
 * ..This is the regular piece of P3_NS-. Approximation taken from 
 *   arXiv:1707.08315.
+*
+*     J. M. - 11/07/2022
 *
       FUNCTION P3NSMA (Y, FLAVOR)
       IMPLICIT DOUBLE PRECISION (A-H, O-Z)
@@ -1142,6 +1152,8 @@ c$$$      if(ipm2.ne.1) go to 1
 * ..This is the singular piece of P3_NS-. Approximation taken from 
 *   arXiv:1707.08315.
 *
+*     J. M. - 11/07/2022
+*
       FUNCTION P3NSMB (Y, FLAVOR)
       IMPLICIT DOUBLE PRECISION (A-H, O-Z)
 *
@@ -1165,6 +1177,8 @@ c$$$      if(ipm2.ne.1) go to 1
 *
 * ..This is the 'local' piece of P3_NS-. Approximation taken from 
 *   arXiv:1707.08315.
+*
+*     J. M. - 11/07/2022
 *
       FUNCTION P3NSMC (Y, FLAVOR)
       IMPLICIT DOUBLE PRECISION (A-H, O-Z)
@@ -1196,6 +1210,8 @@ c$$$      if(ipm2.ne.1) go to 1
 * ..This is P3_NSS, the difference of P3_NSV and P3_NS-.  
 *   Approximation taken from arXiv:1707.08315.
 *
+*     J. M. - 11/07/2022
+*
       FUNCTION P3NSSA (Y, FLAVOR)
       IMPLICIT DOUBLE PRECISION (A-H, O-Z)
 *
@@ -1220,7 +1236,10 @@ c$$$      if(ipm2.ne.1) go to 1
 *
 * ---------------------------------------------------------------------
 *
+*     This part collects the regular pieces for the desired non-singlet
+*     distribution (+, - or sea).
 *
+*     J. M. - 11/07/2022
 *
 *
       FUNCTION P3NSA(y, aNS, ipm, FLAVOR)
@@ -1245,8 +1264,10 @@ c$$$      if(ipm2.ne.1) go to 1
 *
 * ---------------------------------------------------------------------
 *
+*     This part collects the singular pieces for the desired non-singlet
+*     distribution (+, - or sea).
 *
-*
+*     J. M. - 11/07/2022
 *
       FUNCTION P3NSB(y, aNS, ipm, FLAVOR)
       IMPLICIT DOUBLE PRECISION (A-H, O-Z)
@@ -1270,7 +1291,10 @@ c$$$      if(ipm2.ne.1) go to 1
 *
 * ---------------------------------------------------------------------
 *
+*     This part collects the 'local' pieces for the desired non-singlet
+*     distribution (+, - or sea).
 *
+*     J. M. - 11/07/2022
 *
 *
       FUNCTION P3NSC(y, aNS, ipm, FLAVOR)
@@ -1301,6 +1325,8 @@ c$$$      if(ipm2.ne.1) go to 1
 *     Contribution from approximate four-loop splitting function with
 *     variational parameter (-0.7 < aPS < 0.0).
 *     This is the regular part of P3PS.
+*
+*     J. M. - 11/07/2022
 *
       FUNCTION Pqqps3A(x, a)
       IMPLICIT DOUBLE PRECISION (A-H, O-Z)
@@ -1358,6 +1384,8 @@ c$$$      if(ipm2.ne.1) go to 1
 *
 *     This is the regular exact part of P3PS.
 *
+*     J. M. - 11/07/2022
+*
       FUNCTION Pqqps3exactA(x)
       IMPLICIT DOUBLE PRECISION (A-H, O-Z)
       DATA PI,PI2/3.14159,9.8696/
@@ -1380,6 +1408,8 @@ c$$$      if(ipm2.ne.1) go to 1
 *     Contribution from approximate four-loop splitting function with
 *     variational parameter (-2.5 < aQG < -0.8).
 *     This is the regular part of P3QG.
+*
+*     J. M. - 11/07/2022
 *
       FUNCTION Pqg3A(x, a)
       IMPLICIT DOUBLE PRECISION (A-H, O-Z)
@@ -1433,6 +1463,8 @@ c$$$      if(ipm2.ne.1) go to 1
 *
 *     This is the regular exact part of P3QG.
 *
+*     J. M. - 11/07/2022
+*
       FUNCTION Pqg3exactA(x)
       IMPLICIT DOUBLE PRECISION (A-H, O-Z)
 *
@@ -1456,6 +1488,8 @@ c$$$      if(ipm2.ne.1) go to 1
 *     Contribution from approximate four-loop splitting function with
 *     variational parameter (-1.8 < aGQ < -1.5).
 *     This is the regular part of P3GQ.
+*
+*     J. M. - 11/07/2022
 *
       FUNCTION Pgq3A(x, a)
       IMPLICIT DOUBLE PRECISION (A-H, O-Z)
@@ -1510,6 +1544,8 @@ c$$$      if(ipm2.ne.1) go to 1
 *
 *     This is the regular exact part of P3GQ.
 *
+*     J. M. - 11/07/2022
+*
       FUNCTION Pgq3exactA(x)
       IMPLICIT DOUBLE PRECISION (A-H, O-Z)
       DATA PI,PI2/3.14159,9.8696/
@@ -1531,6 +1567,8 @@ c$$$      if(ipm2.ne.1) go to 1
 *     Contribution from approximate four-loop splitting function with
 *     variational parameter (-5 < aGG < -15).
 *     This is the regular part of P3GG.
+*
+*     J. M. - 11/07/2022
 *
       FUNCTION Pgg3A(x, a)
       IMPLICIT DOUBLE PRECISION (A-H, O-Z)
@@ -1581,6 +1619,8 @@ c$$$      if(ipm2.ne.1) go to 1
 * -----------------------------------------------------------------------------
 *
 *     This is the regular exact part of P3GG.
+*
+*     J. M. - 11/07/2022
 *
       FUNCTION Pgg3exactA(x)
       IMPLICIT DOUBLE PRECISION (A-H, O-Z)
