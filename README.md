@@ -1,4 +1,4 @@
-# N<sup>3</sup>LO additions
+# aN<sup>3</sup>LO Parameterisations for MSHT20 aN<sup>3</sup>LO PDFs
 
 This repository contains the Fortran routines for transition matrix elements and splitting functions up to approximate N<sup>3</sup>LO (aN<sup>3</sup>LO).
 
