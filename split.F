@@ -1565,7 +1565,7 @@ c$$$      if(ipm2.ne.1) go to 1
 ! ---------------------------------------------------------------------
 *
 *     Contribution from approximate four-loop splitting function with
-*     variational parameter (-5 < aGG < -15).
+*     variational parameter (5 < aGG < 15).
 *     This is the regular part of P3GG.
 *
 *     J. M. - 11/07/2022
